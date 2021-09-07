@@ -11,6 +11,11 @@ class ChainOfResponsibilityTest {
         return new UsernamePasswordProcessor(samlProcessor);
     }
 
+    private static AuthenticationProcessor getChainOAuthProcessor() {
+        AuthenticationProcessor oAuthAuthenticationProcessor = new OAuthAuthenticationProcessor(null);
+        return new UsernamePasswordProcessor(oAuthAuthenticationProcessor);
+    }
+
     private static AuthenticationProcessor getChainOfSamlProcessor() {
         AuthenticationProcessor samlProcessor = new SamlAuthenticationProcessor(null);
         return new UsernamePasswordProcessor(samlProcessor);
@@ -18,19 +23,22 @@ class ChainOfResponsibilityTest {
 
     @Test
     public void givenOAuthProvider_whenCheckingAuthorized_thenSuccess() {
-        AuthenticationProcessor authProcessorChain = getChainOfAllProcessor();
-        assertTrue(authProcessorChain.isAuthorized(new OAuthTokenProvider()));
+        AuthenticationProcessor allProcessorChain = getChainOfAllProcessor();
+        assertTrue(allProcessorChain.isAuthorized(new OAuthTokenProvider()));
+        assertTrue(allProcessorChain.isAuthorized(new SamlTokenProvider()));
     }
 
     @Test
     public void givenSamlProvider_whenCheckingAuthorized_thenFailSuccess() {
-        AuthenticationProcessor authProcessorChain = getChainOfAllProcessor();
-        assertTrue(authProcessorChain.isAuthorized(new SamlTokenProvider()));
+        AuthenticationProcessor authProcessorChain = getChainOAuthProcessor();
+        assertTrue(authProcessorChain.isAuthorized(new OAuthTokenProvider()));
+        assertFalse(authProcessorChain.isAuthorized(new SamlTokenProvider()));
     }
 
     @Test
     public void givenSamlProvider_whenCheckingAuthorized_thenSuccess() {
         AuthenticationProcessor authProcessorChain = getChainOfSamlProcessor();
         assertTrue(authProcessorChain.isAuthorized(new SamlTokenProvider()));
+        assertFalse(authProcessorChain.isAuthorized(new OAuthTokenProvider()));
     }
 }
