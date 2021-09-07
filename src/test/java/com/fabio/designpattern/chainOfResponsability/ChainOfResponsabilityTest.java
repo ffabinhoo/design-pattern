@@ -7,8 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ChainOfResponsibilityTest {
 
     private static AuthenticationProcessor getChainOfAllProcessor() {
-        AuthenticationProcessor oAuthProcessor = new OAuthProcessor(null);
-        AuthenticationProcessor samlProcessor = new SamlAuthenticationProcessor(oAuthProcessor);
+        AuthenticationProcessor samlProcessor = new SamlAuthenticationProcessor(new OAuthProcessor(null));
         return new UsernamePasswordProcessor(samlProcessor);
     }
 
