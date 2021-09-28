@@ -12,7 +12,9 @@ class PriorityQueueExampleTest {
     @Test
     public void testPriorityQueue(){
         example.build();
+
         Assert.assertEquals(3, example.getPq().size());
+        Assert.assertEquals("Apple", example.getPq().peek());
         Assert.assertEquals("Apple", example.getPq().poll());
         Assert.assertEquals(2, example.getPq().size());
         Assert.assertEquals("PineApple", example.getPq().peek());
