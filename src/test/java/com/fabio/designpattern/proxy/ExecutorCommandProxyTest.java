@@ -14,7 +14,7 @@ class ExecutorCommandProxyTest {
 
     @Test
     public void testExecuteCommandDeleteNonUserFail() throws Exception {
-        ExecutorCommandProxy ex = new ExecutorCommandProxy("fabio","123");
+        ExecutorCommandProxy ex = new ExecutorCommandProxy("fabio-error","123");
         try {
             ex.execute("DELETE");
             Assert.fail();
