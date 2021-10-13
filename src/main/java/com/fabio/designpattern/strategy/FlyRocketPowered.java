@@ -1,4 +1,4 @@
-package com.fabio.designpattern.designtointerfaces;
+package com.fabio.designpattern.strategy;
 
 public class FlyRocketPowered implements FlyBehavior {
 	public void fly() {
