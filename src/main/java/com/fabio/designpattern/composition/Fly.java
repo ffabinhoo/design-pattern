@@ -4,7 +4,7 @@ public class Fly implements FlyBehaviour{
 
 	@Override
 	public void fly() {
-		System.out.println("só fly mesmo");
+		System.out.println("just fly");
 		
 	}
 	
