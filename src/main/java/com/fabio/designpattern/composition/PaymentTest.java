@@ -15,6 +15,8 @@ public class PaymentTest {
 
             payment.paymentMethod.pay();
             payment.paymentMethod.print();
+            //payment.paymentMethod.refund();
+            //payment.paymentMethod.print();
         } catch (Exception e) {
             System.out.println("nothing was passed");
         }

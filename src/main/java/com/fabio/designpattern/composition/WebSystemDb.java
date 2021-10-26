@@ -1,7 +1,6 @@
 package com.fabio.designpattern.composition;
 
-interface FlyBehaviour {
+public class WebSystemDb {
 	
-	void fly();
-	 
+	AbstractDb db;
 }

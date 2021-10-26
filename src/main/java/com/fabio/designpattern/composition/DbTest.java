@@ -4,10 +4,13 @@ public class DbTest{
 
 	public static void main(String[] args) {
 		
-		WebSystem kill = new WebSystem();
+		WebSystemDb kill = new WebSystemDb();
 		kill.db = new TestDB();
 		
 		kill.db.select();
+		kill.db.update();
+
+
 		
 		
 		

@@ -10,7 +10,7 @@ public class Cash implements PaymentMethod {
 
 	@Override
 	public void refund() {
-		// TODO Auto-generated method stub
+		System.out.println("refund - cash");
 
 	}
 
