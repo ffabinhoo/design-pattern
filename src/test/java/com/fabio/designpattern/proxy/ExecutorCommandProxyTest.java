@@ -22,7 +22,5 @@ class ExecutorCommandProxyTest {
             Assert.assertEquals("delete not allowed for non-admin users",e.getMessage());
 
         }
-
     }
-
 }
