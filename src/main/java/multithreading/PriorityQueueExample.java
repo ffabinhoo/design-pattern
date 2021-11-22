@@ -1,24 +1,36 @@
 package multithreading;
 
 import java.util.PriorityQueue;
-import java.util.concurrent.SynchronousQueue;
 
 public class PriorityQueueExample {
 
-    PriorityQueue<String> pq =
+    PriorityQueue<String> pqString =
             new PriorityQueue<String>(3, (a,b) -> a.length() - b.length());
     // or pq = new PriorityQueue<String>(5, Comparator.comparing(String::length));
 
-    SynchronousQueue<String> sq = new SynchronousQueue<>();
+    PriorityQueue<Integer> pqInteger = new PriorityQueue<>(5);
 
-    public PriorityQueue<String> build(){
-        pq.add("PineAppleeeeee");
-        pq.add("Apple");
-        pq.add("PineApple");
-        return pq;
+    public PriorityQueue<Integer> build2(){
+        pqInteger.add(5);
+        pqInteger.add(1);
+        pqInteger.add(7);
+        pqInteger.add(3);
+
+        return pqInteger;
     }
 
-    public PriorityQueue<String> getPq() {
-        return pq;
+    public PriorityQueue<String> build(){
+        pqString.add("PineAppleeeeee");
+        pqString.add("Apple");
+        pqString.add("PineApple");
+        return pqString;
+    }
+
+    public PriorityQueue<String> getPqString() {
+        return pqString;
+    }
+
+    public PriorityQueue<Integer> getPqInteger() {
+        return pqInteger;
     }
 }
