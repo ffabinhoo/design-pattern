@@ -27,7 +27,7 @@ class PriorityQueueExampleTest {
         Assert.assertEquals(4, example.getPqInteger().size());
         Assert.assertEquals(new Integer(1), example.getPqInteger().peek());
         Assert.assertEquals(new Integer(1), example.getPqInteger().poll());
-        example.getPqInteger().add(2);
+        example.getPqInteger().offer(2);
         Assert.assertEquals(new Integer(2), example.getPqInteger().peek());
 
 
