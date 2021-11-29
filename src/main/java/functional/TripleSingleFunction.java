@@ -4,7 +4,7 @@ import org.springframework.util.Assert;
 
 import java.util.function.Function;
 
-public class Triple {
+public class TripleSingleFunction {
 
     protected static class MathCalculations {
         public static Integer triple (Integer x ){
