@@ -19,6 +19,7 @@ public class FunctionAsParameter {
     public static void main(String[] args) {
         System.out.println(MyMath.combine(MyMath::add));
         System.out.println(MyMath.combine(MyMath::subtract));
+        System.out.println(MyMath.combine((x,y) -> (2 * x) + (2 * y)));
     }
 
 }
