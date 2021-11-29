@@ -16,5 +16,11 @@ public class Triple {
         Function<Integer, Integer> myTriple = MathCalculations::triple;
         Integer result = myTriple.apply(5);
         System.out.println(result);
+
+        Function<Integer, Integer> myTriple2 = (Integer x) -> x * 3;
+        result = myTriple2.apply(4);
+        System.out.println(result);
+
+
     }
 }
