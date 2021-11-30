@@ -3,6 +3,7 @@ package functional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -18,20 +19,26 @@ public class PredicateFunctionExample {
         List<String> stringList = new ArrayList<>(Arrays.asList(stringArray));
 
         Predicate<Integer> isEven = (x) -> x % 2 ==0;
+        List<Integer> evens = integerList.stream().filter(isEven).collect(Collectors.toList());
+        System.out.println(evens);
+
+
 
         Function<Integer, Predicate<String>> createStringLength = (minLength) ->{
             return (str) -> str.length() > minLength;
         };
-
-        List<Integer> evens = integerList.stream().filter(isEven).collect(Collectors.toList());
-
-        System.out.println(evens);
-
-
         Predicate<String> isLongerThan5 = createStringLength.apply(9);
-        List<String> strList = stringList.stream().filter(isLongerThan5).collect(Collectors.toList());
-
+        List<String> strList = stringList.stream()
+                .filter(isLongerThan5).collect(Collectors.toList());
         System.out.println(strList);
+
+        Map<Integer, List<String>> mapGroupingBy = stringList.stream()
+                .collect(Collectors.groupingBy((word) -> word.length()));
+        System.out.println(mapGroupingBy);
+
+        Map<Boolean, List<String>> partitionBy = stringList.stream()
+                .collect(Collectors.partitioningBy((word) -> word.length() > 5));
+        System.out.println(partitionBy);
 
     }
 
