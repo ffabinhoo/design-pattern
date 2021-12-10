@@ -21,6 +21,6 @@ public class ObservableFromCallable {
 
     private static int getNumber() {
         System.out.println("Generating Value");
-        return 0/1;
+        return 1/0;
     }
 }
