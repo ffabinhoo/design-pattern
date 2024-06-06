@@ -15,7 +15,7 @@ public class CallableFutureExample {
             Future<Integer> future = service.submit(new Task());
             allFutures.add(future);
         }
-        System.out.println("finished all futures test...");
+        System.out.println("finished all futures...");
 
         for (int i = 0; i < allFutures.size(); i++) {
             try {
